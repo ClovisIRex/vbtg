@@ -10,6 +10,8 @@
 		var round=1;
 	
 		var keysDown = {};
+
+
 		var getKeyPress = function(e) {
 
 			if (e.keyCode == 49 || e.keyCode == 50) {
@@ -80,6 +82,23 @@
 
 
 		var paths = [[false,throw1to2,throw1to3],[throw2to1, false, throw2to3],[throw3to1, throw3to2, false]];
+
+		var playerStats = {
+			player1: {
+				score: 0,
+				rank: 0
+			},
+
+			player2: {
+				score: 70,
+				rank: 0
+			},
+
+			player3: {
+				score: 0,
+				rank: 0
+			}
+		}
 
 
 		function init() {
@@ -171,7 +190,7 @@
 			} else {
 
 			context.save();
-			context.drawImage(imgSet[idx],40,0,735,375);
+			context.drawImage(imgSet[idx],100,0,600,380);
 			writeNames();
 			context.restore();
 			}
@@ -194,9 +213,18 @@
 
 		function writeNames() {
 			context.font = "26px Arial";
-			context.fillText(player2,340,450);
-			context.fillText(player1,10,150);
+			context.fillText(player2 + ' (Me)',340,450);
+			context.fillText(player1,0,150);
 			context.fillText(player3,750,150);
+
+			// context.fillStyle = 'black';
+			context.fillText(`Score: `+ playerStats.player1.score,0,180);
+			context.fillText(`Rank: ` + playerStats.player1.rank,0,210);
+			context.fillText(`Score:` + playerStats.player3.score,750,180);
+			context.fillText(`Rank: ` + playerStats.player3.rank,750,210);
+			context.fillText(`Rank: ` + playerStats.player2.rank,340,540);
+			context.fillText(`Score: ` + playerStats.player2.score,340,510);
+			context.fillStyle = 'red';
 
 		}
 
