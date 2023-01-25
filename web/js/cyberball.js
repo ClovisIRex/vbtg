@@ -8,7 +8,6 @@
 		var idx=0;
 		var holder=0;
 		var round=1;
-	
 		var keysDown = {};
 
 
@@ -18,6 +17,12 @@
 				keysDown[e.keyCode] = true;
 			}
 		}
+
+		var updateScore = function(player, score) {
+			var playerName = 'player' + player;
+			playerStats[playerName].score += score;
+			context.fillText(`Score: `+ playerStats.player1.score,0,180);
+		};
 
 
 
@@ -90,11 +95,30 @@
 			},
 
 			player2: {
-				score: 70,
+				score: 0,
 				rank: 0
 			},
 
 			player3: {
+				score: 0,
+				rank: 0
+			},
+
+			player4: {
+				score: 0,
+				rank: 0
+			},
+
+			player5: {
+				score: 0,
+				rank: 0
+			},
+
+			player6: {
+				score: 0,
+				rank: 0
+			},
+			player7: {
 				score: 0,
 				rank: 0
 			}
@@ -147,6 +171,7 @@
 					addEventListener("keydown",getKeyPress);
 					if (49 in keysDown) {
 						throwTo=1;
+						updateScore(1, 5);
 					}
 					else if (50 in keysDown) {
 						throwTo=3;
@@ -190,6 +215,7 @@
 			} else {
 
 			context.save();
+			context.clearRect(0, 0, canvas.width, canvas.height);
 			context.drawImage(imgSet[idx],100,0,600,380);
 			writeNames();
 			context.restore();
