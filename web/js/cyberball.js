@@ -21,6 +21,10 @@
 		var updateScore = function(player, score) {
 			var playerName = 'player' + player;
 			playerStats[playerName].score += score;
+
+			if (context.font = "40px Arial") {
+				context.font = "26px Arial";
+			}
 			context.fillText(`Score: `+ playerStats.player1.score,0,180);
 		};
 
