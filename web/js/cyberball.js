@@ -22,7 +22,7 @@
 
 
 		var throw1to2 = new Array();
-		var basePath = "imgs/1to2/1to2-";
+		var basePath = "imgs/3/1to2/1to2-";
 		for (var i=1; i<9; i++) {
 			var img = new Image();
 			img.src = basePath + i + '.bmp';
@@ -31,7 +31,7 @@
 
 
 		var throw1to3 = new Array();
-		var basePath = "imgs/1to3/1to3-";
+		var basePath = "imgs/3/1to3/1to3-";
 		for (var i=1; i<10; i++) {
 			var img = new Image();
 			img.src = basePath + i + '.bmp';
@@ -39,7 +39,7 @@
 		}
 
 		var throw2to3 = new Array();
-		var basePath = "imgs/2to3/2to3-";
+		var basePath = "imgs/3/2to3/2to3-";
 		for (var i=1; i<8; i++) {
 			var img = new Image();
 			img.src = basePath + i + '.bmp';
@@ -47,7 +47,7 @@
 		}
 
 		var throw2to1 = new Array();
-		var basePath = "imgs/2to1/2to1-";
+		var basePath = "imgs/3/2to1/2to1-";
 		for (var i=1; i<8; i++) {
 			var img = new Image();
 			img.src = basePath + i + '.bmp';
@@ -55,7 +55,7 @@
 		}
 
 		var throw3to1 = new Array();
-		var basePath = "imgs/3to1/3to1-";
+		var basePath = "imgs/3/3to1/3to1-";
 		for (var i=1; i<10; i++) {
 			var img = new Image();
 			img.src = basePath + i + '.bmp';
@@ -63,7 +63,7 @@
 		}
 
 		var throw3to2 = new Array();
-		var basePath = "imgs/3to2/3to2-";
+		var basePath = "imgs/3/3to2/3to2-";
 		for (var i=1; i<9; i++) {
 			var img = new Image();
 			img.src = basePath + i + '.bmp';
