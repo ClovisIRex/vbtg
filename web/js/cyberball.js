@@ -10,6 +10,14 @@
 		var round=1;
 		var keysDown = {};
 
+		var playerScoreLocations = {
+			3 : {
+				1 : [0,180],
+				2 : [340,540],
+				3: [750,180]
+			}
+		}
+
 
 		var getKeyPress = function(e) {
 
@@ -18,14 +26,26 @@
 			}
 		}
 
-		var updateScore = function(player, score) {
+		var updateScore = function(playerAmount, player, score) {
 			var playerName = 'player' + player;
 			playerStats[playerName].score += score;
 
 			if (context.font = "40px Arial") {
 				context.font = "26px Arial";
 			}
-			context.fillText(`Score: `+ playerStats.player1.score,0,180);
+
+			var [scoreX, scoreY] = playerScoreLocations[playerAmount][player]
+			context.fillText(`Score: `+ playerStats[playerName].score,scoreX,scoreY);
+		};
+
+		var updateRank = function(player, rank) {
+			var playerName = 'player' + player;
+			playerStats[playerName].rank = rank;
+
+			if (context.font = "40px Arial") {
+				context.font = "26px Arial";
+			}
+			context.fillText(`Rank: `+ playerStats[playerName].rank,0,180);
 		};
 
 
@@ -171,11 +191,9 @@
 				return;
 			} else
 			if (holder==2) {
-
 					addEventListener("keydown",getKeyPress);
 					if (49 in keysDown) {
 						throwTo=1;
-						updateScore(1, 5);
 					}
 					else if (50 in keysDown) {
 						throwTo=3;
@@ -204,6 +222,19 @@
 				};
 			}
 			holder = throwTo;
+			
+			switch (holder) {
+				case 1:
+					updateScore(3, 1, 5);
+				case 2:
+					updateScore(3, 2, 5);
+					break;
+				case 3:
+					updateScore(3, 3, 5);
+					break;			
+				default:
+					break;
+			}
 			trialCnt++;
 			keysDown={};
 			imgSet=paths[throwFrom-1][throwTo-1];

@@ -88,10 +88,10 @@
 				
 					$('#player2').html('<b>'+playerName+'</b>');
 					flip();
-					setTimeout(function() { $('#player1').html('Welcome <b>' + player1 + '</b>')}, 5200)
-					setTimeout(function() { $('#player3').html('Welcome <b>' + player3 + '</b>'); $('#letsplay').show();}, 10000)
+					setTimeout(function() { $('#player1').html('Welcome <b>' + player1 + '</b>')}, 520)
+					setTimeout(function() { $('#player3').html('Welcome <b>' + player3 + '</b>'); $('#letsplay').show();}, 1000)
 					player2 = playerName;
-					setTimeout(playGame,13000);
+					setTimeout(playGame,1300);
 				}
 
 				
