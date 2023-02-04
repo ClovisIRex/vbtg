@@ -10,6 +10,11 @@
 		var round=1;
 		var keysDown = {};
 
+		var MAX_LOW_RANK = 20;
+		var MAX_MED_RANK = 50;
+
+
+
 		var playerScoreLocations = {
 			3 : {
 				1 : [0,180],
@@ -47,6 +52,42 @@
 			}
 			context.fillText(`Rank: `+ playerStats[playerName].rank,0,180);
 		};
+
+		var getBallProbability = function(src, target) {
+			var srcRank = src.rank;
+			var targetRank = target.rank;
+
+			if (srcRank <= MAX_LOW_RANK) {
+				return {0.48 : 0.26};
+			}
+
+			if (srcRank > MAX_LOW_RANK && srcRank <= MAX_MED_RANK) {
+				if (targetRank < srcRank) {
+					return {0.33 : 0.17}
+				}
+
+				if (targetRank == srcRank) {
+					return {0.33 : 0.33}
+				}
+
+				if (targetRank > srcRank) {
+					return {0.33 : 0.16}
+				}
+				
+			}
+
+			if (srcRank > MAX_MED_RANK) {
+				if (targetRank < srcRank) {
+					return {0.08 : 0.22}
+				}
+
+				if (targetRank >= srcRank) {
+					return {0.08 : 0.7}
+				}
+			}
+
+
+		}
 
 
 
